@@ -123,7 +123,7 @@ ess_yc |> select(cntry, year, pca_pcs) |> unnest(cols = c(pca_pcs)) |>
 	plot_annotation(caption = "Black thick line = PCAs for all countries")
 ```
 
-## Principal Compenent Analyses
+## Principal Component Analyses
 
 We compute one PCA for all countries and years, `r nrow(ess_y)` PCAs for each year over all countries, and `r nrow(ess_yc)` PCAs for each country for each year. For visualization purposes we rescale the loadings of the original variables on the different PCs such that the left-right selfplacement is negative. That way, all other variables can be interpreted as being associated with being politically left. However, this only makes sense when the loading for selfplacement is not close to zero. Further on, we make the sum of the absolute values of loading equal to five. 
 
@@ -148,12 +148,12 @@ ess_all |> PC_plot()
 
 @fig-ess_y shows the results when PCA's are computed independently for each year. Over all the PC structure remains remarkably stable. Notable changes in loadings are visible for PC2 and PC3. Increasing issue alignment is visble with the explained variance for PC1 increased from 29.2% to 35.1%. 
 
-Finally, @fig-ess-yc shows that PC1 looks very similar for all countries in the dataset in 2023. A notable difference is that former socialist countries (Slovenia, Poland, and Hungary) have no association of left-right selfplacement and being pro or against redistribution. In Portugal the same is true for being pro or against the EU. In comparison, Switzerland (41.8%) and the United Kingdom (39.1%) shows the strongest issue alignment and Portugal (27.6%), Ireland (29.3%) and Slovenia (29.9%) the lowest. 
+Finally, @fig-ess_yc shows that PC1 looks very similar for all countries in the dataset in 2023. A notable difference is that former socialist countries (Slovenia, Poland, and Hungary) have no association of left-right selfplacement and being pro or against redistribution. In Portugal the same is true for being pro or against the EU. In comparison, Switzerland (41.8%) and the United Kingdom (39.1%) shows the strongest issue alignment and Portugal (27.6%), Ireland (29.3%) and Slovenia (29.9%) the lowest. 
 
 
 ```{r}
 #| label: fig-ess_y
-#| fig.cap: "European Social Survey: PCA all countries fro 2004 to 2023."
+#| fig.cap: "European Social Survey: PCA all countries from 2004 to 2023."
 #| fig-height: 15
 
 g <- map(ess$year |> unique(),
