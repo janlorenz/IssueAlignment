@@ -3,6 +3,8 @@ project:
 
 website:
   title: "today"
+  repo-url: https://github.com/janlorenz/IssueAlignment
+  repo-actions: [source, issue]
 navbar:
   left:
   - href: index.qmd
