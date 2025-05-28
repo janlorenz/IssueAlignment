@@ -12,7 +12,7 @@ author:
         state: Germany
         url: www.janlo.de
 abstract: |
-  This research note shows that issue alignment (as a form of polarization) has almost unanimously increased in European countries from 2004 to 2023 with respect to five variables: left-right selfplacement and attitudes in favor or against of the EU, gays/lesbians, immigrants, and redistribution. This is quantified using principle component analysis of survey responses from the European Social Survey on these five variables for several years and countries. The PC structure is fairly constant over time and also does not vary a lot between different countries. Therefore, the percentage of the variance explained by the first principal components is taken as a proxy for issue aligment. Issue alignment has increased from 29.2% to 35.1%, however, the current level shows that the five issues are by far not fully aligned.  
+  This research note shows that issue alignment (as a form of polarization) has almost unanimously increased in European countries from 2004 to 2023 with respect to five variables: left-right selfplacement and attitudes in favor or against of the EU, gays/lesbians, immigrants, and redistribution. This is quantified using principle component analysis of survey responses from the European Social Survey on these five variables for several years and countries. The PC structure is fairly constant over time and also does not vary a lot between different countries. Therefore, the percentage of the variance explained by the first principal components is taken as a proxy for issue aligment. Issue alignment has increased from 29.2% to 35.1%, however, the current level shows that the five issues are by far not fully aligned.
 format: 
   html:
     toc: true
@@ -20,6 +20,9 @@ format:
     code-fold: true
 bibliography: references.json
 ---
+
+[![](https://zenodo.org/badge/986162013.svg)](https://doi.org/10.5281/zenodo.15514367)
+
 
 ```{r}
 #| message: false
