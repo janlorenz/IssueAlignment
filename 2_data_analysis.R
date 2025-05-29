@@ -89,7 +89,7 @@ ess_y <- ess |>
                         mutate(value = normalize_pc(value), .by = name) |> 
                         mutate(expVar = y,  .by = c(topic_desc, topic)) |>
                         mutate(name = paste0(name, " (", formatpercentage(expVar), ")")) ))
-ESS04 <- ess_y |> filter(year == 2004) |> pull(pca_pcs) |> first() |> PC_plot() + labs(tag = "2002")
+ESS04 <- ess_y |> filter(year == 2004) |> pull(pca_pcs) |> first() |> PC_plot() + labs(tag = "2004")
 ESS23 <- ess_y |> filter(year == 2023) |> pull(pca_pcs) |> first() |> PC_plot() + labs(tag = "2023") 
 
 
