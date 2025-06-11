@@ -23,7 +23,6 @@ bibliography: references.json
 
 [![](https://zenodo.org/badge/986162013.svg)](https://doi.org/10.5281/zenodo.15514367)
 
-
 ```{r}
 #| message: false
 
@@ -53,7 +52,7 @@ cntrynames <- c("BE","CH","DE","ES","FI","FR","GB","HU","IE","NL","NO","PL","PT"
 
 *Issue alignment* is one facet of polarization [@BaldassarriGelman2008PartisansConstraintPolitical] which is about how attitudes on different topic dimensions are aligned. It has also been called attitude consolidation. It means that over time, attitudes become increasingly predictive of each other. When attitudes become correlated, divisions between groups with different attitudes may feel deeper, even in the absence of any change in single-issue polarization on the macro-level. Contrary to single issue based polarization, attitude consolidation does find considerable empirical support [@DellaPosta2020PluralisticCollapseOil] analyzing survey data from the United States of America using belief network analysis. Belief network analysis it is based on the correlation matrix of attitudes computed on survey data. Here, we use a related but arguably simple approach: principle component analysis (PCA).
 
-PCA is a based on the eigendecomposition of the correlation matrix. The eigenvectors are the principle components and the corresponding eigenvalues[^1] represent the part of the total variance explained by the direction the corresponding eigenvector points to. That way the eigenvalues create a natural hierarchy of the principal components. That way, the percentage of total variance explained by the first principal component can serve as a measure of issue alignment. The more variance is explained by the first principle component, the more issues are aligned.
+PCA is a based on the eigendecomposition of the correlation matrix. The eigenvectors are the principle components and the corresponding eigenvalues[^1] represent the part of the total variance explained by the direction the corresponding eigenvector points to. That way the eigenvalues create a natural hierarchy of the principal components, and the percentage of total variance explained by the first principal component can serve as a measure of issue alignment. The more variance is explained by the first principle component, the more issues are aligned. This relates to the idea introduced by @SchweighoferGarcia2024RaisingSpectrumPolarization.
 
 [^1]: All eigenvalues are non-negative because the correlation matrix is symmetric.
 
@@ -91,7 +90,7 @@ For a PCA we need data on all five items for each individual. After filtering fo
 
 ## Main Result: Increasing issue alignment
 
-@fig-main shows how issue alignment increased in almost all European countries for which enough data is available in the European Social survey. The particular structure and stability of the PCA analysis is analyzed in the next sections.  
+@fig-main shows how issue alignment increased in almost all European countries for which enough data is available in the European Social survey. The particular structure and stability of the PCA analysis is analyzed in the next sections.
 
 ```{r}
 #| label: fig-main
@@ -128,7 +127,7 @@ ess_yc |> select(cntry, year, pca_pcs) |> unnest(cols = c(pca_pcs)) |>
 
 ## Principal Component Analyses
 
-We compute one PCA for all countries and years, `r nrow(ess_y)` PCAs for each year over all countries, and `r nrow(ess_yc)` PCAs for each country for each year. For visualization purposes we rescale the loadings of the original variables on the different PCs such that the left-right selfplacement is negative. That way, all other variables can be interpreted as being associated with being politically left. However, this only makes sense when the loading for selfplacement is not close to zero. Further on, we make the sum of the absolute values of loading equal to five. 
+We compute one PCA for all countries and years, `r nrow(ess_y)` PCAs for each year over all countries, and `r nrow(ess_yc)` PCAs for each country for each year. For visualization purposes we rescale the loadings of the original variables on the different PCs such that the left-right selfplacement is negative. That way, all other variables can be interpreted as being associated with being politically left. However, this only makes sense when the loading for selfplacement is not close to zero. Further on, we make the sum of the absolute values of loading equal to five.
 
 ```{r}
 #| label: fig-ess_all
@@ -147,12 +146,11 @@ PC_plot <- function(data, title) data |>
 ess_all |> PC_plot()
 ```
 
-@fig-ess_all shows the five principal components for the the PCA of the whole data set and the corresponding percentage of the variance explained. PC1 explains 32% of the variance and characterizes a direction where being politically left is associated being in favor of all four other variables. It somehow captures a modern conceptualization of being left and right. PC2 explaining 22.1% of the total variance can be interpreted as a more traditional interpretation, where being left is strongly associated with being in favor of redistribution while there are slightly negative associations with the EU, and immigrants. PC3 distinguishes a direction where being pro gay/lesbian is associated with being against EU und against redistribution. We omit the interpretation of the last two PC's which represent less than 30% of the total variance. 
+@fig-ess_all shows the five principal components for the the PCA of the whole data set and the corresponding percentage of the variance explained. PC1 explains 32% of the variance and characterizes a direction where being politically left is associated being in favor of all four other variables. It somehow captures a modern conceptualization of being left and right. PC2 explaining 22.1% of the total variance can be interpreted as a more traditional interpretation, where being left is strongly associated with being in favor of redistribution while there are slightly negative associations with the EU, and immigrants. PC3 distinguishes a direction where being pro gay/lesbian is associated with being against EU und against redistribution. We omit the interpretation of the last two PC's which represent less than 30% of the total variance.
 
-@fig-ess_y shows the results when PCA's are computed independently for each year. Over all the PC structure remains remarkably stable. Notable changes in loadings are visible for PC2 and PC3. Increasing issue alignment is visble with the explained variance for PC1 increased from 29.2% to 35.1%. 
+@fig-ess_y shows the results when PCA's are computed independently for each year. Over all the PC structure remains remarkably stable. Notable changes in loadings are visible for PC2 and PC3. Increasing issue alignment is visble with the explained variance for PC1 increased from 29.2% to 35.1%.
 
-Finally, @fig-ess_yc shows that PC1 looks very similar for all countries in the dataset in 2023. A notable difference is that former socialist countries (Slovenia, Poland, and Hungary) have no association of left-right selfplacement and being pro or against redistribution. In Portugal the same is true for being pro or against the EU. In comparison, Switzerland (41.8%) and the United Kingdom (39.1%) shows the strongest issue alignment and Portugal (27.6%), Ireland (29.3%) and Slovenia (29.9%) the lowest. 
-
+Finally, @fig-ess_yc shows that PC1 looks very similar for all countries in the dataset in 2023. A notable difference is that former socialist countries (Slovenia, Poland, and Hungary) have no association of left-right selfplacement and being pro or against redistribution. In Portugal the same is true for being pro or against the EU. In comparison, Switzerland (41.8%) and the United Kingdom (39.1%) shows the strongest issue alignment and Portugal (27.6%), Ireland (29.3%) and Slovenia (29.9%) the lowest.
 
 ```{r}
 #| label: fig-ess_y
@@ -183,8 +181,6 @@ ess_yc |> filter(year == 2023, cntry %in% c("BE","CH","DE","ES","FI","FR","GB","
 	theme_bw() +
 	theme(axis.title.x=element_blank(),axis.title.y=element_blank())
 ```
-
-
 
 ## Appendix {.appendix}
 
